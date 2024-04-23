@@ -1,95 +1,108 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import { userSchema } from "@/validations/userSchema";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import React, {useState} from "react";
+import PersonIcon from "@mui/icons-material/Person";
+import Avatar from "@mui/material/Avatar";
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
+// Definimos un tipo para el estado de los errores
+type ErrorState = {
+  name?: string[];
+  email?: string[];
+  cedula?: string[];
+  terms?: string[]; // Cambiado de string a string[]
+};
+
+// Definimos el componente Home
+function Home() {
+  // Definimos el estado para el formulario y los errores
+  const [form, setForm] = useState({ name: "", email: "", cedula: "", terms: false }); // Agregamos el campo 'terms' al estado del formulario
+  const [errors, setErrors] = useState<ErrorState>({});
+
+  // Esta función maneja los cambios en los campos del formulario
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+    setForm({
+      ...form,
+      [event.target.name]: value,
+    });
+  };
+
+  // Esta función maneja el envío del formulario
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const { success, data, error } = userSchema.safeParse(form);
+
+    // Si la validación falla, establecemos los errores
+    if (!success) {
+      setErrors(error.formErrors.fieldErrors);
+    } else {
+      // Si la validación es exitosa, imprimimos los datos y limpiamos los errores
+      console.log(data);
+      setErrors({});
+    }
+  };
+
+  // Renderizamos el formulario
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div>
+      <form onSubmit={handleSubmit}>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+        <Avatar sx={{ width: 205, height: 185, margin: '0 auto 10px auto' }}>
+          <PersonIcon sx={{ width: 120, height: 120 }} />
+        </Avatar>
+
+        <TextField
+          id="name"
+          name="name"
+          label="Nombres Completos"
+          value={form.name}
+          onChange={handleChange}
+          error={Boolean(errors.name)}
+          helperText={errors.name && errors.name[0]}
         />
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <TextField
+          id="email"
+          name="email"
+          label="Correo Electrónico"
+          value={form.email}
+          onChange={handleChange}
+          error={Boolean(errors.email)}
+          helperText={errors.email && errors.email[0]}
+        />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        <TextField
+          id="cedula"
+          name="cedula"
+          label="Cédula"
+          value={form.cedula}
+          onChange={handleChange}
+          error={Boolean(errors.cedula)}
+          helperText={errors.cedula && errors.cedula[0]}
+        />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={form.terms}
+              onChange={handleChange}
+              name="terms"
+              color="primary"
+            />
+          }
+          label="Acepto los términos y condiciones"
+        />
+        {errors.terms && <p>{errors.terms}</p>} {/* Muestra el error de términos y condiciones si existe */}
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <Button variant="contained" type="submit">Enviar</Button>
+      </form>
+    </div>
   );
 }
+
+export default Home;
