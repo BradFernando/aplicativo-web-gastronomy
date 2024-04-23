@@ -6,7 +6,6 @@ import styled from '@emotion/styled';
 import { userSchema } from "@/validations/userSchema";
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import IconButton from '@mui/material/IconButton';
 import React, {useState} from "react";
@@ -70,7 +69,7 @@ function Home() {
     <div>
       <form onSubmit={handleSubmit}>
 
-        <Avatar sx={{ width: 180, height: 180, margin: '0 auto 15px auto', bgcolor: 'lightslategrey' }}>
+        <Avatar sx={{ width: 180, height: 180, margin: '0 auto 20px auto', bgcolor: 'lightslategrey' }}>
           <PersonIcon sx={{ width: 135, height: 135, color: 'blue' }} />
         </Avatar>
 
