@@ -52,8 +52,8 @@ function Home() {
     <div>
       <form onSubmit={handleSubmit}>
 
-        <Avatar sx={{ width: 205, height: 185, margin: '0 auto 15px auto', bgcolor: 'lightslategrey' }}>
-          <PersonIcon sx={{ width: 120, height: 120, color: 'blue' }} />
+        <Avatar sx={{ width: 180, height: 180, margin: '0 auto 15px auto', bgcolor: 'lightslategrey' }}>
+          <PersonIcon sx={{ width: 135, height: 135, color: 'blue' }} />
         </Avatar>
 
         <TextField
