@@ -52,7 +52,7 @@ function Home() {
     <div>
       <form onSubmit={handleSubmit}>
 
-        <Avatar sx={{ width: 205, height: 185, margin: '0 auto 10px auto' }}>
+        <Avatar sx={{ width: 205, height: 185, margin: '0 auto 15px auto' }}>
           <PersonIcon sx={{ width: 120, height: 120 }} />
         </Avatar>
 
