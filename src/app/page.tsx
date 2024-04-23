@@ -1,13 +1,31 @@
 "use client";
 
+/** @jsxImportSource @emotion/react */
+import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 import { userSchema } from "@/validations/userSchema";
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import IconButton from '@mui/material/IconButton';
 import React, {useState} from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import Avatar from "@mui/material/Avatar";
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+
+// Define la animación de pulsación
+const pulse = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+`;
+
+// Aplica la animación al componente Box
+const AnimatedBox = styled(Box)`
+  animation: ${pulse} 2s infinite;
+`;
 
 // Definimos un tipo para el estado de los errores
 type ErrorState = {
@@ -99,7 +117,23 @@ function Home() {
         />
         {errors.terms && <p>{errors.terms}</p>} {/* Muestra el error de términos y condiciones si existe */}
 
-        <Button variant="contained" type="submit">Enviar</Button>
+        <AnimatedBox
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            margin: '15px auto 0 auto',
+            justifyContent: 'center',
+            borderRadius: '50%',
+            overflow: 'hidden',
+            width: 72,// Ajusta el tamaño según tus necesidades
+            height: 72, // Ajusta el tamaño según tus necesidades
+            bgcolor: 'primary.main',
+          }}
+        >
+          <IconButton type="submit" color="inherit">
+            <ArrowForwardIosIcon color="inherit" fontSize="large" /> {/* Ajusta el tamaño según tus necesidades */}
+          </IconButton>
+        </AnimatedBox>
       </form>
     </div>
   );
