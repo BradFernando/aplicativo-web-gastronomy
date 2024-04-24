@@ -3,15 +3,28 @@
 
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import { Global, css } from '@emotion/react';
+import { Global, css, keyframes } from '@emotion/react'; // Importa keyframes
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Image from "next/image";
+import styled from "@emotion/styled";
 
+// Define la animación de pulsación
+const pulse = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+`;
 
+// Aplica la animación al componente IconButton
+const AnimatedIconButton = styled(IconButton)`
+  animation: ${pulse} 2s infinite;
+`;
+
+// Define la interfaz FormData
 interface FormData {
   name?: string;
   email?: string;
@@ -100,19 +113,18 @@ export default function AccountMenu() {
 
         {/* Agregamos los botones con iconos */}
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', marginTop: '20px', width: '100%', alignItems: 'center' }}>
-          <IconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Snacks" width={325} height={100} /> {/* Asegúrate de reemplazar los valores de width y height con los tamaños reales de tus imágenes */}
-          </IconButton>
-          <IconButton>
+          <AnimatedIconButton>
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Snacks" width={325} height={100} />
+          </AnimatedIconButton>
+          <AnimatedIconButton>
             <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Bebidas" width={325} height={100} />
-          </IconButton>
-          <IconButton>
+          </AnimatedIconButton>
+          <AnimatedIconButton>
             <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Combos" width={325} height={100} />
-          </IconButton>
-          <IconButton>
+          </AnimatedIconButton>
+          <AnimatedIconButton>
             <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Almuerzos" width={325} height={100} />
-          </IconButton>
-
+          </AnimatedIconButton>
         </Box>
       </div>
     </>
