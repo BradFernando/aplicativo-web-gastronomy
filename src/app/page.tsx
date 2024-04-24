@@ -1,7 +1,9 @@
+// src/app/page.tsx
 "use client";
 
 /** @jsxImportSource @emotion/react */
-import { css, keyframes } from '@emotion/react';
+
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { userSchema } from "@/validations/userSchema";
 import TextField from '@mui/material/TextField';
@@ -40,6 +42,7 @@ function Home() {
   const [form, setForm] = useState({ name: "", email: "", cedula: "", terms: false }); // Agregamos el campo 'terms' al estado del formulario
   const [errors, setErrors] = useState<ErrorState>({});
 
+
   // Esta función maneja los cambios en los campos del formulario
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -50,19 +53,25 @@ function Home() {
   };
 
   // Esta función maneja el envío del formulario
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const { success, data, error } = userSchema.safeParse(form);
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const { success, data, error } = userSchema.safeParse(form);
 
-    // Si la validación falla, establecemos los errores
-    if (!success) {
-      setErrors(error.formErrors.fieldErrors);
-    } else {
-      // Si la validación es exitosa, imprimimos los datos y limpiamos los errores
-      console.log(data);
-      setErrors({});
-    }
-  };
+      // Si la validación falla, establecemos los errores
+      if (!success) {
+        setErrors(error.formErrors.fieldErrors);
+      } else {
+        // Si la validación es exitosa, imprimimos los datos y limpiamos los errores
+        console.log(data);
+        setErrors({});
+
+        // Guarda los datos del formulario en el almacenamiento local
+        localStorage.setItem('formData', JSON.stringify(data));
+
+        // Redirige al usuario a la página de menú
+        window.location.href = '/menu';
+      }
+    };
 
   // Renderizamos el formulario
   return (

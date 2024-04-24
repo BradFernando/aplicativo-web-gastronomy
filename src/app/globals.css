@@ -12,7 +12,6 @@ form{
   display: grid;
   row-gap: 0.5rem;
 }
-
 .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
   border-color: white;
 }
