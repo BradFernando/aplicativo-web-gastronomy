@@ -9,6 +9,8 @@ import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Image from "next/image";
+
 
 interface FormData {
   name?: string;
@@ -96,12 +98,21 @@ export default function AccountMenu() {
           </Box>
         </Menu>
 
-        {/* Agregamos los botones grandes */}
+        {/* Agregamos los botones con iconos */}
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', marginTop: '20px', width: '100%', alignItems: 'center' }}>
-          <Button variant="contained" size="large" style={{ width: '20rem' }}>Snacks</Button>
-          <Button variant="contained" size="large" style={{ width: '20rem' }}>Bebidas</Button>
-          <Button variant="contained" size="large" style={{ width: '20rem' }}>Combos</Button>
-          <Button variant="contained" size="large" style={{ width: '20rem' }}>Almuerzos</Button>
+          <IconButton>
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png" alt="Snacks" width={100} height={100} /> {/* Asegúrate de reemplazar los valores de width y height con los tamaños reales de tus imágenes */}
+          </IconButton>
+          <IconButton>
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png" alt="Bebidas" width={100} height={100} />
+          </IconButton>
+          <IconButton>
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png" alt="Combos" width={100} height={100} />
+          </IconButton>
+          <IconButton>
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png" alt="Almuerzos" width={100} height={100} />
+          </IconButton>
+
         </Box>
       </div>
     </>
