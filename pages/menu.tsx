@@ -59,7 +59,7 @@ export default function AccountMenu() {
             }
         `}
       />
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', height: '100vh', background: '#222222', color: 'white' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', height: '100vh', background: '#222222', color: 'white' }}>
         <Typography variant="h4" component="h2" style={{ marginTop: '2px', marginLeft:'10px' }}>
           Menú
         </Typography>
@@ -80,19 +80,27 @@ export default function AccountMenu() {
         >
           <Box sx={{ padding: '10px' }}>
             <Typography variant="body1" component="p">
-              Nombre: {formData.name}
+              {formData.name}
             </Typography>
             <Typography variant="body1" component="p">
-              Correo: {formData.email}
+              {formData.email}
             </Typography>
             <Typography variant="body1" component="p">
-              CI: {formData.cedula}
+              {formData.cedula}
             </Typography>
             <Button onClick={handleLogout} color="primary" variant="contained" style={{ marginTop: '10px' }}>
               Cerrar sesión
             </Button>
           </Box>
         </Menu>
+
+        {/* Agregamos los botones grandes */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '20px' }}>
+          <Button variant="contained" size="large">Snacks</Button>
+          <Button variant="contained" size="large">Bebidas</Button>
+          <Button variant="contained" size="large">Combos</Button>
+          <Button variant="contained" size="large">Almuerzos</Button>
+        </Box>
       </div>
     </>
   );
