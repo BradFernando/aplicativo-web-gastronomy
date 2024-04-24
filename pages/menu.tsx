@@ -48,11 +48,11 @@ export default function AccountMenu() {
         `}
       />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', height: '100vh', background: '#222222', color: 'white' }}>
-        <Typography variant="h4" component="h1" style={{ marginTop: '20px' }}>
+        <Typography variant="h4" component="h2" style={{ marginTop: '0px', marginLeft:'10px' }}>
           Menú
         </Typography>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant="h6" component="h2" style={{ marginRight: '10px' }}>
+          <Typography variant="h6" component="h6" style={{ marginRight: '10px' }}>
             {`Bienvenid@, ${firstName}`} {/* Muestra el primer nombre del usuario recuperado del formulario */}
           </Typography>
           <IconButton onClick={handleClick}>
