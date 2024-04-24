@@ -59,7 +59,7 @@ export default function AccountMenu() {
             }
         `}
       />
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', height: '100vh', background: '#222222', color: 'white' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: '#222222', color: 'white' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
           <Typography variant="h4" component="h2" style={{ marginTop: '2px', marginLeft:'10px' }}>
             Menú
@@ -97,11 +97,11 @@ export default function AccountMenu() {
         </Menu>
 
         {/* Agregamos los botones grandes */}
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '20px', width: '100%' }}>
-          <Button variant="contained" size="large">Snacks</Button>
-          <Button variant="contained" size="large">Bebidas</Button>
-          <Button variant="contained" size="large">Combos</Button>
-          <Button variant="contained" size="large">Almuerzos</Button>
+        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', marginTop: '20px', width: '100%', alignItems: 'center' }}>
+          <Button variant="contained" size="large" style={{ width: '20rem' }}>Snacks</Button>
+          <Button variant="contained" size="large" style={{ width: '20rem' }}>Bebidas</Button>
+          <Button variant="contained" size="large" style={{ width: '20rem' }}>Combos</Button>
+          <Button variant="contained" size="large" style={{ width: '20rem' }}>Almuerzos</Button>
         </Box>
       </div>
     </>
