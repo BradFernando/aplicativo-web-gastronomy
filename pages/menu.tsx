@@ -35,6 +35,9 @@ export default function AccountMenu() {
     setAnchorEl(null);
   };
 
+  // Divide el nombre por espacios y toma el primer elemento
+  const firstName = formData.name?.split(' ')[0];
+
   return (
     <>
       <Global
@@ -48,12 +51,14 @@ export default function AccountMenu() {
         <Typography variant="h4" component="h1" style={{ marginTop: '20px' }}>
           Menú
         </Typography>
-        <Typography variant="h6" component="h2" style={{ marginTop: '20px' }}>
-          {`Hola, ${formData.name}`} {/* Muestra el nombre del usuario recuperado del formulario */}
-        </Typography>
-        <IconButton onClick={handleClick}>
-          <Avatar sx={{ bgcolor: 'white' }} />
-        </IconButton>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Typography variant="h6" component="h2" style={{ marginRight: '10px' }}>
+            {`Bienvenid@, ${firstName}`} {/* Muestra el primer nombre del usuario recuperado del formulario */}
+          </Typography>
+          <IconButton onClick={handleClick}>
+            <Avatar sx={{ bgcolor: 'white' }} />
+          </IconButton>
+        </div>
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
