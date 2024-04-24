@@ -6,11 +6,14 @@ import Typography from '@mui/material/Typography';
 import { Global, css } from '@emotion/react';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 interface FormData {
   name?: string;
+  email?: string;
+  cedula?: string;
   // puedes agregar más campos aquí si es necesario
 }
 
@@ -37,6 +40,15 @@ export default function AccountMenu() {
 
   // Divide el nombre por espacios y toma el primer elemento
   const firstName = formData.name?.split(' ')[0];
+
+  // Función para manejar el cierre de sesión
+  const handleLogout = () => {
+    // Borra los datos del formulario del almacenamiento local
+    localStorage.removeItem('formData');
+
+    // Redirige al usuario a la página de inicio
+    window.location.href = '/';
+  };
 
   return (
     <>
@@ -66,9 +78,20 @@ export default function AccountMenu() {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Opción 1</MenuItem>
-          <MenuItem onClick={handleClose}>Opción 2</MenuItem>
-          <MenuItem onClick={handleClose}>Opción 3</MenuItem>
+          <Box sx={{ padding: '10px' }}>
+            <Typography variant="body1" component="p">
+              Nombre: {formData.name}
+            </Typography>
+            <Typography variant="body1" component="p">
+              Correo: {formData.email}
+            </Typography>
+            <Typography variant="body1" component="p">
+              CI: {formData.cedula}
+            </Typography>
+            <Button onClick={handleLogout} color="primary" variant="contained" style={{ marginTop: '10px' }}>
+              Cerrar sesión
+            </Button>
+          </Box>
         </Menu>
       </div>
     </>
