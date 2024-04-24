@@ -9,12 +9,17 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 
+interface FormData {
+  name?: string;
+  // puedes agregar más campos aquí si es necesario
+}
+
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
   // Inicializa formData como un objeto vacío
-  const [formData, setFormData] = React.useState({});
+  const [formData, setFormData] = React.useState<FormData>({});
 
   // Recupera los datos del formulario del almacenamiento local en un efecto
   React.useEffect(() => {
