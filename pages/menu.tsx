@@ -101,16 +101,16 @@ export default function AccountMenu() {
         {/* Agregamos los botones con iconos */}
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', marginTop: '20px', width: '100%', alignItems: 'center' }}>
           <IconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png" alt="Snacks" width={100} height={100} /> {/* Asegúrate de reemplazar los valores de width y height con los tamaños reales de tus imágenes */}
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Snacks" width={325} height={100} /> {/* Asegúrate de reemplazar los valores de width y height con los tamaños reales de tus imágenes */}
           </IconButton>
           <IconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png" alt="Bebidas" width={100} height={100} />
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Bebidas" width={325} height={100} />
           </IconButton>
           <IconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png" alt="Combos" width={100} height={100} />
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Combos" width={325} height={100} />
           </IconButton>
           <IconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png" alt="Almuerzos" width={100} height={100} />
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Almuerzos" width={325} height={100} />
           </IconButton>
 
         </Box>
