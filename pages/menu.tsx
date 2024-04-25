@@ -114,16 +114,16 @@ export default function AccountMenu() {
         {/* Agregamos los botones con iconos */}
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', marginTop: '20px', width: '100%', alignItems: 'center' }}>
           <AnimatedIconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Snacks" width={325} height={100} />
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/SNACKS_dequnu.png" alt="Snacks" width={325} height={100} />
           </AnimatedIconButton>
           <AnimatedIconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Bebidas" width={325} height={100} />
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/BEBIDAS_lbvufu.png" alt="Bebidas" width={325} height={100} />
           </AnimatedIconButton>
           <AnimatedIconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Combos" width={325} height={100} />
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/COMBOS_p0u4ia.png" alt="Combos" width={325} height={100} />
           </AnimatedIconButton>
           <AnimatedIconButton>
-            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1713929119/SNACKKS_quy0wf.png" alt="Almuerzos" width={325} height={100} />
+            <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/ALMUERZOS_fhn1x0.png" alt="Almuerzos" width={325} height={100} />
           </AnimatedIconButton>
         </Box>
       </div>
