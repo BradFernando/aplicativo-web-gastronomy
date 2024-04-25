@@ -47,6 +47,12 @@ export default function AccountMenu() {
   const [success, setSuccess] = React.useState(false);
   const timer = React.useRef<ReturnType<typeof setTimeout>>();
 
+  // Función para manejar el clic en el botón de snacks
+    const handleSnacksClick = () => {
+      window.location.href = '/snacks'; // Redirige al usuario a la página de snacks
+    }
+
+    // Estilos del botón de cierre de sesión
   const buttonSx = {
     ...(success && {
       bgcolor: green[500],
@@ -163,7 +169,7 @@ export default function AccountMenu() {
 
           {/* Agregamos los botones con iconos */}
           <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', marginTop: '20px', width: '100%', alignItems: 'center' }}>
-            <AnimatedIconButton>
+            <AnimatedIconButton onClick={handleSnacksClick}>
               <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/SNACKS_dequnu.png" alt="Snacks" width={320} height={90} />
             </AnimatedIconButton>
             <AnimatedIconButton>
