@@ -52,6 +52,21 @@ export default function AccountMenu() {
       window.location.href = '/snacks'; // Redirige al usuario a la página de snacks
     }
 
+    // Función para manejar el clic en el botón de bebidas
+    const handleBebidasClick = () => {
+      window.location.href = '/bebidas'; // Redirige al usuario a la página de bebidas
+    }
+
+    // Función para manejar el clic en el botón de combos
+    const handleCombosClick = () => {
+      window.location.href = '/combos'; // Redirige al usuario a la página de combos
+    }
+
+    // Función para manejar el clic en el botón de almuerzos
+    const handleAlmuerzosClick = () => {
+      window.location.href = '/almuerzos'; // Redirige al usuario a la página de almuerzos
+    }
+
     // Estilos del botón de cierre de sesión
   const buttonSx = {
     ...(success && {
@@ -172,13 +187,13 @@ export default function AccountMenu() {
             <AnimatedIconButton onClick={handleSnacksClick}>
               <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/SNACKS_dequnu.png" alt="Snacks" width={320} height={90} />
             </AnimatedIconButton>
-            <AnimatedIconButton>
+            <AnimatedIconButton onClick={handleBebidasClick}>
               <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/BEBIDAS_lbvufu.png" alt="Bebidas" width={320} height={95} />
             </AnimatedIconButton>
-            <AnimatedIconButton>
+            <AnimatedIconButton onClick={handleCombosClick}>
               <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/COMBOS_p0u4ia.png" alt="Combos" width={320} height={90} />
             </AnimatedIconButton>
-            <AnimatedIconButton>
+            <AnimatedIconButton onClick={handleAlmuerzosClick}>
               <Image src="https://res.cloudinary.com/ddafrj6z7/image/upload/v1714004112/ALMUERZOS_fhn1x0.png" alt="Almuerzos" width={320} height={100} />
             </AnimatedIconButton>
           </Box>
