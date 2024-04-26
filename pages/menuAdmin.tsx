@@ -13,6 +13,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Grid from '@mui/material/Grid';
 
 const drawerBleeding = 56;
 
@@ -50,17 +51,17 @@ const icons = [
   <AddShoppingCartIcon key="icon2" />,
   <AddShoppingCartIcon key="icon3" />, // Primera fila
   <AddShoppingCartIcon key="icon4" />,
-  <AddShoppingCartIcon key="icon5" />,
-  <AddShoppingCartIcon key="icon6" />, // Segunda fila
 ];
 
 function IconCard({ icon }: { icon: React.ReactNode }) {
   return (
-    <Card sx={{ margin: 1, display: 'inline-block' }}> {/* Añade margen y display para organizar las tarjetas en filas */}
-      <CardContent>
-        <IconButton>{icon}</IconButton>
-      </CardContent>
-    </Card>
+    <Grid item xs={6}>
+      <Card sx={{ height: '100%', width: '100%' }}>
+        <CardContent>
+          <IconButton>{icon}</IconButton>
+        </CardContent>
+      </Card>
+    </Grid>
   );
 }
 
@@ -118,7 +119,7 @@ export default function MenuAdmin(props: Props) {
               }}
           >
             <Puller />
-            <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+            <Typography sx={{ p: 2, color: 'text.secondary' }}>Deslice hacia arriba para empezar 🥳 </Typography>
           </StyledBox>
           <StyledBox
               sx={{
@@ -128,9 +129,11 @@ export default function MenuAdmin(props: Props) {
                 overflow: 'auto',
               }}
           >
-            {icons.map((icon, index) => (
-              <IconCard key={index} icon={icon} />
-            ))}
+            <Grid container spacing={2}>
+              {icons.map((icon, index) => (
+                <IconCard key={index} icon={icon} />
+              ))}
+            </Grid>
           </StyledBox>
         </SwipeableDrawer>
       </Root>
