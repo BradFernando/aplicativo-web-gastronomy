@@ -1,13 +1,14 @@
-body{
+body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Alinea el contenido al inicio del eje vertical */
   height: 90vh;
-  background: #222222 ;
+  background: #222222;
   color: white;
+  padding-top: 0; /* Añade un margen superior */
 }
 
-form{
+form {
   width: 20rem;
   display: grid;
   row-gap: 0.5rem;
