@@ -24,7 +24,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import React, { useState } from "react";
 import { productSchema } from "@/validations/adminSchema";
-import ProductCard from './components/productCard';
+import ProductCard from './productCard';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
