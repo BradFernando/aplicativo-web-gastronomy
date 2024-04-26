@@ -69,7 +69,7 @@ function Home() {
         localStorage.setItem('formData', JSON.stringify(data));
 
         // Redirige al usuario a la página de menú
-        window.location.href = '/menu';
+        window.location.href = '/menuAdmin';
       }
     };
 
