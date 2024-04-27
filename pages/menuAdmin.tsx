@@ -12,6 +12,7 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
+import Image from 'next/image';
 
 const drawerBleeding = 56;
 
@@ -56,12 +57,14 @@ function IconCard({ button }: { button: { image: string, title: string } }) {
     <Grid item xs={6}>
       <Card sx={{ height: '100%', width: '100%' }}>
         <CardContent>
-          <Button>
-            <img src={button.image} alt={button.title} />
-          </Button>
-          <Typography variant="h6" component="h2">
-            {button.title}
-          </Typography>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <Button>
+              <Image src={button.image} alt={button.title} width={125} height={125} />
+            </Button>
+            <Typography variant="h6" component="h2">
+              {button.title}
+            </Typography>
+          </Box>
         </CardContent>
       </Card>
     </Grid>
