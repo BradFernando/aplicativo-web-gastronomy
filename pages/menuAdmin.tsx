@@ -11,8 +11,6 @@ import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import IconButton from '@mui/material/IconButton';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Grid from '@mui/material/Grid';
 
 const drawerBleeding = 56;
@@ -45,20 +43,25 @@ const Puller = styled('div')(({ theme }) => ({
   left: 'calc(50% - 15px)',
 }));
 
-// Define tus iconos aquí
-const icons = [
-  <AddShoppingCartIcon key="icon1" />,
-  <AddShoppingCartIcon key="icon2" />,
-  <AddShoppingCartIcon key="icon3" />, // Primera fila
-  <AddShoppingCartIcon key="icon4" />,
+// Define tus botones aquí
+const buttons = [
+  { image: 'https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png', title: 'Home' },
+  { image: 'https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png', title: 'Acerca de' },
+  { image: 'https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png', title: 'Agregar producto' },
+  { image: 'https://res.cloudinary.com/ddafrj6z7/image/upload/v1713925031/comida-rapida_sthqf2.png', title: 'Verificar productos' },
 ];
 
-function IconCard({ icon }: { icon: React.ReactNode }) {
+function IconCard({ button }: { button: { image: string, title: string } }) {
   return (
     <Grid item xs={6}>
       <Card sx={{ height: '100%', width: '100%' }}>
         <CardContent>
-          <IconButton>{icon}</IconButton>
+          <Button>
+            <img src={button.image} alt={button.title} />
+          </Button>
+          <Typography variant="h6" component="h2">
+            {button.title}
+          </Typography>
         </CardContent>
       </Card>
     </Grid>
@@ -130,8 +133,8 @@ export default function MenuAdmin(props: Props) {
               }}
           >
             <Grid container spacing={2}>
-              {icons.map((icon, index) => (
-                <IconCard key={index} icon={icon} />
+              {buttons.map((button, index) => (
+                <IconCard key={index} button={button} />
               ))}
             </Grid>
           </StyledBox>
