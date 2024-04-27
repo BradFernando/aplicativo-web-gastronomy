@@ -59,7 +59,7 @@ function IconCard({ button }: { button: { image: string, title: string } }) {
         <CardContent>
           <Box display="flex" flexDirection="column" alignItems="center">
             <Button>
-              <Image src={button.image} alt={button.title} width={125} height={125} />
+              <Image src={button.image} alt={button.title} width={120} height={120} />
             </Button>
             <Typography variant="h6" component="h2">
               {button.title}
@@ -125,7 +125,9 @@ export default function MenuAdmin(props: Props) {
               }}
           >
             <Puller />
-            <Typography sx={{ p: 2, color: 'text.secondary' }}>Deslice hacia arriba para empezar 🥳 </Typography>
+                <Typography sx={{ p: 2, color: 'text.secondary' }}>
+                  {open ? "Pulse 'Abrir menú' nuevamente para cerrar esta ventana" : "Deslice hacia arriba para empezar 🥳"}
+                </Typography>
           </StyledBox>
           <StyledBox
               sx={{
